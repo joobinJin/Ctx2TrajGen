@@ -6,4 +6,6 @@
 
 ## 🚀 Overview
 
+![Architecture](images/architecture.png)
+
 **Ctx2TrajGen**  is a Generative Adversarial Imitation Learning (GAIL) framework for generating microscale vehicle trajectories in real-world traffic scenes. Our model learns realistic vehicle movement patterns by modeling interactions, road structure, and dynamics, without requiring explicit reward design.

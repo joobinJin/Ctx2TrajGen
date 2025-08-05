@@ -105,12 +105,9 @@ All experiment logs and models are automatically saved under:
 
 pth/pth_{variant}/
 
+
 For example:
-
-Full version → pth/pth_full/
-
-No PPO → pth/pth_noPPO/
-
-No WGAN-GP → pth/pth_noWGAN-GP/
-
-Vanilla → pth/pth_vanilla/
+- Full version → `pth/pth_full/`  
+- No PPO → `pth/pth_noPPO/`  
+- No WGAN-GP → `pth/pth_noWGAN-GP/`  
+- Vanilla → `pth/pth_vanilla/`

@@ -16,5 +16,4 @@
 ```bash
 git clone https://github.com/joobinJin/Ctx2TrajGen.git
 cd Ctx2TrajGen
-pip install -r requirements.txt
 ```

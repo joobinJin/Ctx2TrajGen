@@ -57,4 +57,80 @@ Runs inference using `PolicyNetRNN` and `ValueNetRNN` to verify model outputs su
 python test/test_policy_net.py
 ```
 
+## 🏃 Training the Model
+
+To train the full Ctx2TrajGen model using GAIL with PPO and WGAN-GP, simply run:
+
+```bash
+python run_gail.py
+```
+
+By default, the model uses:
+- **PPO** (for stable policy updates)
+- **WGAN-GP** (for robust discriminator training)
+- Expert demonstrations from `Data/clean_DJI.pkl` with context `Data/C.json`
+
+You can specify training parameters (e.g., number of iterations, hidden size, learning rates, etc.) using command-line arguments.
+
+### 📋 Key Arguments
+
+| Argument | Description | Default |
+|----------|-------------|---------|
+| `--iteration` | Number of training iterations | `200` |
+| `--n_episode` | Number of rollout episodes per iteration | `10` |
+| `--max_steps` | Max steps per episode | `300` |
+| `--batch-size` | Minibatch size | `32` |
+| `--hidden` | Hidden dimension size | `128` |
+| `--num-layers` | Number of RNN layers | `2` |
+| `--policy-lr` | Policy learning rate | `5e-5` |
+| `--value-lr` | Value learning rate | `1e-4` |
+| `--disc-lr` | Discriminator learning rate | `5e-5` |
+| `--gamma` | Discount factor | `0.98` |
+| `--cuda` | Whether to use GPU | `True` |
+| `--data` | Path to expert trajectory data | `Data/clean_DJI.pkl` |
+| `--cjson` | Path to context JSON | `Data/C.json` |
+| `--exp-name` | Optional experiment name (used for folder naming) | `None` |
+
+To view all available options:
+
+```bash
+python run_gail.py --help
+```
+
+---
+
+### 🔬 Ablation Study Options
+
+You can toggle PPO and WGAN-GP modules using the following flags:
+
+| Flag | Description |
+|------|-------------|
+| `--no-ppo` | Disable PPO; use vanilla policy gradient |
+| `--no-wgan-gp` | Disable WGAN-GP; use vanilla GAN loss |
+| `--vanilla` | Disable both PPO and WGAN-GP (classic GAIL) |
+
+Example commands:
+
+```bash
+# Full version (PPO + WGAN-GP)
+python run_gail.py
+
+# No PPO (GAIL + WGAN-GP)
+python run_gail.py --no-ppo
+
+# No WGAN-GP (GAIL + PPO + Vanilla GAN)
+python run_gail.py --no-wgan-gp
+
+# Vanilla GAIL (no PPO, no WGAN-GP)
+python run_gail.py --vanilla
+```
+
+All experiment logs and models are saved under:
+```
+pth/pth_{variant}/
+```
+
+For example, running with `--vanilla` will save to `pth/pth_vanilla/`, while the full setting saves to `pth/pth_full/`.
+
+---
 

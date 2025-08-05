@@ -70,34 +70,11 @@ By default, the model uses:
 - **WGAN-GP** (for robust discriminator training)
 - Expert demonstrations from `Data/clean_DJI.pkl` with context `Data/C.json`
 
-You can specify training parameters (e.g., number of iterations, hidden size, learning rates, etc.) using command-line arguments.
-
-### 📋 Key Arguments
-
-| Argument | Description | Default |
-|----------|-------------|---------|
-| `--iteration` | Number of training iterations | `200` |
-| `--n_episode` | Number of rollout episodes per iteration | `10` |
-| `--max_steps` | Max steps per episode | `300` |
-| `--batch-size` | Minibatch size | `32` |
-| `--hidden` | Hidden dimension size | `128` |
-| `--num-layers` | Number of RNN layers | `2` |
-| `--policy-lr` | Policy learning rate | `5e-5` |
-| `--value-lr` | Value learning rate | `1e-4` |
-| `--disc-lr` | Discriminator learning rate | `5e-5` |
-| `--gamma` | Discount factor | `0.98` |
-| `--cuda` | Whether to use GPU | `True` |
-| `--data` | Path to expert trajectory data | `Data/clean_DJI.pkl` |
-| `--cjson` | Path to context JSON | `Data/C.json` |
-| `--exp-name` | Optional experiment name (used for folder naming) | `None` |
-
-To view all available options:
+You can optionally adjust training hyperparameters such as the number of iterations, learning rates, hidden size, etc., using command-line arguments. To see all available options:
 
 ```bash
 python run_gail.py --help
 ```
-
----
 
 ### 🔬 Ablation Study Options
 
@@ -124,13 +101,4 @@ python run_gail.py --no-wgan-gp
 # Vanilla GAIL (no PPO, no WGAN-GP)
 python run_gail.py --vanilla
 ```
-
-All experiment logs and models are saved under:
-```
-pth/pth_{variant}/
-```
-
-For example, running with `--vanilla` will save to `pth/pth_vanilla/`, while the full setting saves to `pth/pth_full/`.
-
----
 

@@ -29,3 +29,14 @@ conda activate Ctx2TrajGen
 # Install dependencies
 pip install -r requirements.txt
 ```
+## 🧪 Running Tests
+
+You can verify each core module (Environment, Discriminator, Policy & Value Network) with the following unit test scripts:
+
+### 1. Environment Test
+
+Runs a simple environment rollout to ensure the `MicroTrajectoryEnv` is properly initialized and functional.
+
+```bash
+python test/test_env.py
+

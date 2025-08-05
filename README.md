@@ -103,8 +103,9 @@ python run_gail.py --vanilla
 ```
 All experiment logs and models are automatically saved under:
 
+```
 pth/pth_{variant}/
-
+```
 
 For example:
 - Full version → `pth/pth_full/`  

@@ -14,6 +14,14 @@
 ## ⚙️ Installation
 
 ```bash
+# Clone the repository
 git clone https://github.com/joobinJin/Ctx2TrajGen.git
 cd Ctx2TrajGen
+
+# Create a virtual environment (Python 3.10)
+conda create -n Ctx2TrajGen python=3.10
+conda activate Ctx2TrajGen
+
+# Install dependencies
+pip install -r requirements.txt
 ```

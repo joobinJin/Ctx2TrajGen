@@ -39,4 +39,22 @@ Runs a simple environment rollout to ensure the `MicroTrajectoryEnv` is properly
 
 ```bash
 python test/test_env.py
+```
+
+### 2. Discriminator Test
+
+Tests whether the `DiscriminatorRNN` can process sample state-action pairs and output realistic discrimination scores.
+
+```bash
+python test/test_discriminator.py
+```
+
+### 3. Policy & Value Network Test
+
+Runs inference using `PolicyNetRNN` and `ValueNetRNN` to verify model outputs such as action probabilities and state values for a batch of input trajectories.
+
+```bash
+python test/test_policy_net.py
+```
+
 
